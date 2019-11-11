@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard.Hosting", "Midgard.Hosting\Midgard.Hosting.csproj", "{C32C1B4E-3210-4C44-97D1-D22220B15E97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard", "Midgard\Midgard.csproj", "{4017A45A-A445-457E-A372-273E3049AF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard", "Midgard\Midgard.csproj", "{4017A45A-A445-457E-A372-273E3049AF0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard.Bootstrapper", "Midgard.Bootstrapper\Midgard.Bootstrapper.csproj", "{F0E8E555-8DE1-4960-8596-2809A65A1493}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard.Bootstrapper", "Midgard.Bootstrapper\Midgard.Bootstrapper.csproj", "{F0E8E555-8DE1-4960-8596-2809A65A1493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard.Minions.Abstractions", "Midgard.Minions.Abstractions\Midgard.Minions.Abstractions.csproj", "{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard.Minions.Test", "Midgard.Minions.Test\Midgard.Minions.Test.csproj", "{414B8731-48F6-423A-A5E8-8E8E5DA0635A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{F0E8E555-8DE1-4960-8596-2809A65A1493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0E8E555-8DE1-4960-8596-2809A65A1493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0E8E555-8DE1-4960-8596-2809A65A1493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
