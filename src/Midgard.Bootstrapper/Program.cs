@@ -10,6 +10,11 @@ namespace Midgard.Bootstrapper
 {
     class Program
     {
+        public class Dep : IDependency
+        {
+
+        }
+
         static async Task Main(string[] args)
         {
             var loadContext = new DirectoryLoadContext(@"C:\Users\kaept\source\repos\kaep7n\midgard\src\Midgard.Minions.Test\bin\Debug\netcoreapp3.0");
@@ -18,15 +23,11 @@ namespace Midgard.Bootstrapper
             var assembly = loadContext.LoadFromAssemblyName(assemblyName);
             var type = assembly.GetType("Midgard.Minions.Test.TestMinion");
 
-            //var proxy = DispatchProxy.Create<IMinion, MinionProxy>();
-            var minion = Activator.CreateInstance(type);
-
-            //((MinionProxy)proxy).SetTarget(minion);
-
             using var host = Host.CreateDefaultBuilder(args)
                 .ConfigureServices((c, s) => {
                     s.AddHostedService<Core>();
-                    s.AddSingleton((IMinion)minion);
+                    s.AddTransient<IDependency, Dep>();
+                    s.AddTransient(typeof(IMinion), type);
                 })
                 .Build();
 
@@ -59,7 +60,7 @@ namespace Midgard.Bootstrapper
                         continue;
                     }
 
-                    Console.WriteLine("         assembly: " + assembly.FullName);
+                    Console.WriteLine("     " + assembly.FullName);
                 }
             }
         }
