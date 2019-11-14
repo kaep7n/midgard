@@ -10,7 +10,7 @@ namespace Midgard
         private readonly string directory;
 
         public DirectoryLoadContext(string directory)
-            : base("MidgardContext", true)
+            : base($"MidgardContext_{Guid.NewGuid().ToString()}", true)
         {
             if (directory == null)
             {

@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
-using Midgard.Minions.Abstractions;
 using System;
-using System.Reflection;
-using System.Runtime.Loader;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,21 +8,31 @@ namespace Midgard
 {
     public class Core : IHostedService
     {
-        private readonly IMinion minion;
+        private List<TypeLoader> typeLoaders = new List<TypeLoader>();
 
-        public Core(IMinion minion)
+        public Task StartAsync(CancellationToken cancellationToken)
         {
-            this.minion = minion;
+            var typeDefinition = new TypeDefinition("Midgard.Minions.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Midgard.Minions.Test.TestMinion");
+
+            for (int i = 0; i < 5; i++)
+            {
+                var typeLoader = new TypeLoader(@"C:\Users\kaept\source\repos\kaep7n\midgard\src\Midgard.Minions.Test\bin\Debug\netcoreapp3.0");
+                var type = typeLoader.Load(typeDefinition);
+
+                this.typeLoaders.Add(typeLoader);
+            }
+
+            return Task.CompletedTask;
         }
 
-        public async Task StartAsync(CancellationToken cancellationToken)
+        public Task StopAsync(CancellationToken cancellationToken)
         {
-            await this.minion.StartAsync().ConfigureAwait(false);
-        }
+            foreach (var typeLoader in this.typeLoaders)
+            {
+                typeLoader.Unload();
+            }
 
-        public async Task StopAsync(CancellationToken cancellationToken)
-        {
-            await this.minion.StopAsync().ConfigureAwait(false);
+            return Task.CompletedTask;
         }
     }
 }

@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard", "Midgard\Midgard.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard.Bootstrapper", "Midgard.Bootstrapper\Midgard.Bootstrapper.csproj", "{F0E8E555-8DE1-4960-8596-2809A65A1493}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard.Minions.Abstractions", "Midgard.Minions.Abstractions\Midgard.Minions.Abstractions.csproj", "{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard.Minions.Abstractions", "Midgard.Minions.Abstractions\Midgard.Minions.Abstractions.csproj", "{F6D1041F-89C3-44F1-AA1D-6A12CBF21F1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard.Minions.Test", "Midgard.Minions.Test\Midgard.Minions.Test.csproj", "{414B8731-48F6-423A-A5E8-8E8E5DA0635A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midgard.Minions.Test", "Midgard.Minions.Test\Midgard.Minions.Test.csproj", "{414B8731-48F6-423A-A5E8-8E8E5DA0635A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midgard.Lords.Abstractions", "Midgard.Lords.Abstractions\Midgard.Lords.Abstractions.csproj", "{9EA4FD7B-B6C7-449A-8E45-6670DBAE637D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414B8731-48F6-423A-A5E8-8E8E5DA0635A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA4FD7B-B6C7-449A-8E45-6670DBAE637D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA4FD7B-B6C7-449A-8E45-6670DBAE637D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA4FD7B-B6C7-449A-8E45-6670DBAE637D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA4FD7B-B6C7-449A-8E45-6670DBAE637D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
