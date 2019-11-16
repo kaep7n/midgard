@@ -6,11 +6,6 @@ namespace Midgard.Minions.Test
 {
     public class TestMinion : IMinion
     {
-        public TestMinion(IDependency dep)
-        {
-
-        }
-
         public Task StartAsync()
         {
             Console.WriteLine("Start Test Minion");

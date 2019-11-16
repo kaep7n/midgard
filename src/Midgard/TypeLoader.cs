@@ -6,7 +6,7 @@ namespace Midgard
 {
     public class TypeLoader
     {
-        private readonly DirectoryLoadContext loadContext;
+        private readonly WeakReference<DirectoryLoadContext> loadContextRef;
         private Assembly assembly = null;
 
         public TypeLoader(string directory)
@@ -16,7 +16,8 @@ namespace Midgard
                 throw new ArgumentNullException(nameof(directory));
             }
 
-            this.loadContext = new DirectoryLoadContext(directory);
+            var loadContext = new DirectoryLoadContext(directory);
+            this.loadContextRef = new WeakReference<DirectoryLoadContext>(loadContext);
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
@@ -27,13 +28,21 @@ namespace Midgard
                 throw new ArgumentNullException(nameof(typeDefinition));
             }
 
-            this.assembly = this.loadContext.LoadFromAssemblyName(typeDefinition.AssemblyName);
-            return this.assembly.GetType(typeDefinition.Name);
+            if(this.loadContextRef.TryGetTarget(out var loadContext))
+            { 
+                this.assembly = loadContext.LoadFromAssemblyName(typeDefinition.AssemblyName);
+                return this.assembly.GetType(typeDefinition.Name);
+            }
+
+            return null;
         }
 
         public void Unload()
         {
-            this.loadContext.Unload();
+            if (this.loadContextRef.TryGetTarget(out var loadContext))
+            {
+                loadContext.Unload();
+            }
         }
     }
 }
